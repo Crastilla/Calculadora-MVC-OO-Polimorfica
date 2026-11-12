@@ -1,0 +1,24 @@
+{
+  "name": "calculadora-mvc-oo-polimorfica",
+  "version": "1.0.0",
+  "description": "Calculadora com o objetivo Integrado de aplicar Classes, Objetos, Herança, Polimorfismo, MVC, Arquitetura em Camadas e Persistência Local em uma mesma aplicação real.",
+  "homepage": "https://github.com/Crastilla/Calculadora-MVC-OO-Polim-rfica#readme",
+  "bugs": {
+    "url": "https://github.com/Crastilla/Calculadora-MVC-OO-Polim-rfica/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Crastilla/Calculadora-MVC-OO-Polim-rfica.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview --host"
+  },
+  "devDependencies": {
+    "vite": "^8.3.8"
+  }
+}
