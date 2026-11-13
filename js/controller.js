@@ -154,12 +154,14 @@ seletorTema.addEventListener("input", () => {
   aplicarTema(seletorTema.value);
   salvarTema(seletorTema.value);
 });
+
 botaoHistorico.addEventListener("click", () => {
   const abrir = painelHistorico.hidden;
   painelHistorico.hidden = !abrir;
   botaoHistorico.setAttribute("aria-expanded", String(abrir));
   botaoHistorico.textContent = abrir ? "OCULTAR HISTÓRICO" : "VER HISTÓRICO";
 });
+
 aplicarTema(carregarTema());
 renderizarHistorico();
 atualizarVisor();

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>calc</h1>
+        <div class="tema">
+          <span>TEMA</span>
+          <div>
+            <div class="numeros">
+              <span>1</span><span>2</span><span>3</span>
+            </div>
+            <input
+              type="range"
+              id="tema"
+              min="1"
+              max="3"
+              step="1"
+              value="1"
+              aria-label="Tema"
+            />
+          </div>
+        </div>
+      </header>
+
+      <div id="visor" class="visor">0</div>
+
+      <div id="teclado" class="teclado">
+        <button data-num="7">7</button>
+        <button data-num="8">8</button>
+        <button data-num="9">9</button>
+        <button class="acao" data-acao="del">DEL</button>
+
+        <button data-num="4">4</button>
+        <button data-num="5">5</button>
+        <button data-num="6">6</button>
+        <button data-operacao="soma">+</button>
+
+        <button data-num="1">1</button>
+        <button data-num="2">2</button>
+        <button data-num="3">3</button>
+        <button data-operacao="subtracao">-</button>
+
+        <button data-acao="ponto">.</button>
+        <button data-num="0">0</button>
+        <button data-operacao="divisao">/</button>
+        <button data-operacao="multiplicacao">×</button>
+
+        <button class="acao dobro" data-acao="reset">RESET</button>
+        <button class="igual dobro" data-acao="igual">=</button>
+      </div>
+
+      <p id="mensagem"></p>
+
+      <button
+        id="botao-historico"
+        class="botao-historico"
+        aria-expanded="false"
+      >
+        VER HISTÓRICO
+      </button>
+
+      <section id="painel-historico" hidden>
+        <h2>Histórico</h2>
+        <ul id="historico"></ul>
+      </section>
+    </main>
+
+    <script type="module" src="../js/controller.js"></script>
+  </body>
+</html>
