@@ -1,0 +1,244 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Tema 1 (padrão) */
+body {
+  --fundo: hsl(222, 26%, 31%);
+  --teclado: hsl(223, 31%, 20%);
+  --visor: hsl(224, 36%, 15%);
+  --tecla: hsl(30, 25%, 89%);
+  --tecla-sombra: hsl(28, 16%, 65%);
+  --tecla-texto: hsl(221, 14%, 31%);
+  --acao: hsl(225, 21%, 49%);
+  --acao-sombra: hsl(224, 28%, 35%);
+  --acao-texto: #fff;
+  --igual: hsl(6, 63%, 50%);
+  --igual-sombra: hsl(6, 70%, 34%);
+  --igual-texto: #fff;
+  --texto: #fff;
+}
+
+body[data-tema="2"] {
+  --fundo: hsl(0, 0%, 90%);
+  --teclado: hsl(0, 5%, 81%);
+  --visor: hsl(0, 0%, 93%);
+  --tecla: hsl(45, 7%, 89%);
+  --tecla-sombra: hsl(35, 11%, 61%);
+  --tecla-texto: hsl(60, 10%, 19%);
+  --acao: hsl(185, 42%, 37%);
+  --acao-sombra: hsl(185, 58%, 25%);
+  --igual: hsl(25, 98%, 40%);
+  --igual-sombra: hsl(25, 99%, 27%);
+  --texto: hsl(60, 10%, 19%);
+}
+
+body[data-tema="3"] {
+  --fundo: hsl(268, 75%, 9%);
+  --teclado: hsl(268, 71%, 12%);
+  --visor: hsl(268, 71%, 12%);
+  --tecla: hsl(268, 47%, 21%);
+  --tecla-sombra: hsl(290, 70%, 36%);
+  --tecla-texto: hsl(52, 100%, 62%);
+  --acao: hsl(281, 89%, 26%);
+  --acao-sombra: hsl(285, 91%, 52%);
+  --igual: hsl(176, 100%, 44%);
+  --igual-sombra: hsl(177, 92%, 70%);
+  --igual-texto: hsl(198, 20%, 13%);
+  --texto: hsl(52, 100%, 62%);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: "League Spartan", system-ui, sans-serif;
+  font-weight: 700;
+}
+
+main {
+  width: 100%;
+  max-width: 420px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+h2 {
+  margin-top: 2rem;
+  font-size: 1.25rem;
+}
+
+/* Seletor de tema */
+.tema {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.numeros {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+}
+
+#tema {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 3.75rem;
+  height: 1.5rem;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+#tema::-webkit-slider-runnable-track {
+  height: 1.5rem;
+  background: var(--teclado);
+  border-radius: 1rem;
+}
+
+#tema::-moz-range-track {
+  height: 1.5rem;
+  background: var(--teclado);
+  border-radius: 1rem;
+}
+
+#tema::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 0.3rem solid var(--teclado);
+  border-radius: 50%;
+  background: var(--igual);
+  background-clip: padding-box;
+}
+
+#tema::-moz-range-thumb {
+  box-sizing: border-box;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 0.3rem solid var(--teclado);
+  border-radius: 50%;
+  background: var(--igual);
+  background-clip: padding-box;
+}
+
+/* Visor */
+.visor {
+  margin: 1.5rem 0 1rem;
+  padding: 1.25rem 1.5rem;
+  min-height: 5rem;
+  background: var(--visor);
+  border-radius: 8px;
+  text-align: right;
+  font-size: 2.25rem;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+/* Teclado */
+.teclado {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--teclado);
+  border-radius: 10px;
+}
+
+.teclado button {
+  padding: 0.7rem 0;
+  border: 0;
+  border-radius: 6px;
+  background: var(--tecla);
+  color: var(--tecla-texto);
+  box-shadow: 0 4px 0 var(--tecla-sombra);
+  font: inherit;
+  font-size: 1.75rem;
+  cursor: pointer;
+}
+
+.teclado button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--tecla-sombra);
+}
+
+.teclado .acao {
+  background: var(--acao);
+  color: var(--acao-texto);
+  box-shadow: 0 4px 0 var(--acao-sombra);
+  font-size: 1.25rem;
+}
+
+.teclado .igual {
+  background: var(--igual);
+  color: var(--igual-texto);
+  box-shadow: 0 4px 0 var(--igual-sombra);
+}
+
+.teclado .dobro {
+  grid-column: span 2;
+}
+
+#mensagem {
+  min-height: 1.5rem;
+  text-align: center;
+}
+
+#historico {
+  padding-left: 1.25rem;
+}
+
+@media (max-width: 400px) {
+  .teclado {
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+}
+
+.botao-historico {
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.7rem 0;
+  border: 0;
+  border-radius: 6px;
+  background: var(--acao);
+  color: var(--acao-texto);
+  box-shadow: 0 4px 0 var(--acao-sombra);
+  font: inherit;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.botao-historico:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--acao-sombra);
+}
+
+#painel-historico {
+  margin-top: 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--teclado);
+  border-radius: 10px;
+}
+
+#painel-historico h2 {
+  margin-top: 0;
+}
