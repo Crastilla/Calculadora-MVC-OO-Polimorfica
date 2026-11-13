@@ -1,4 +1,4 @@
-import { calcular, SIMBOLOS } from "./model.js";
+import { OPERACOES, SIMBOLOS } from "./model.js";
 import {
   carregarHistorico,
   salvarHistorico,
@@ -89,10 +89,16 @@ function resetar() {
 function resolver() {
   const b = parseFloat(entrada);
   try {
+    // Polimorfismo: escolhe a classe pelo tipo e chama sempre o mesmo método
+    const Classe = OPERACOES[operacaoAtual];
+    if (!Classe) {
+      throw new Error("Operação desconhecida.");
+    }
+    const op = new Classe(anterior, b);
+
     // toFixed evita resultados como 0.30000000000000004
-    const resultado = parseFloat(
-      calcular(operacaoAtual, anterior, b).toFixed(10),
-    );
+    const resultado = parseFloat(op.calcular().toFixed(10));
+
     historico.push(
       `${anterior} ${SIMBOLOS[operacaoAtual]} ${b} = ${resultado}`,
     );
@@ -110,7 +116,6 @@ function resolver() {
     return false;
   }
 }
-
 function escolherOperacao(tipo) {
   // Se já existe uma conta pendente com o segundo número digitado, resolve antes
   if (operacaoAtual !== null && !novaEntrada) {
